@@ -21,7 +21,7 @@ function Feed() {
   const [stats, setStats] = useState({ total: 0, departments: 0 });
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/employees')
+    fetch(`${import.meta.env.VITE_API_URL}/api/employees`)
       .then((res) => res.json())
       .then((data) => {
         const depts = new Set(data.map((e) => e.department_id).filter(Boolean));

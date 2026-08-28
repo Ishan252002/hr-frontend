@@ -17,7 +17,7 @@ function Leave() {
   }, []);
 
   const fetchLeaves = () => {
-    fetch('http://localhost:8000/api/leave-requests')
+    fetch(`${import.meta.env.VITE_API_URL}/api/leave-requests`)
       .then(res => res.json())
       .then(data => {
         setLeaves(data);
@@ -28,7 +28,7 @@ function Leave() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8000/api/leave-requests', {
+    fetch(`${import.meta.env.VITE_API_URL}/api/leave-requests`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(formData),
@@ -42,7 +42,7 @@ function Leave() {
   };
 
   const handleApprove = (id) => {
-    fetch(`http://localhost:8000/api/leave-requests/${id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/api/leave-requests/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ status: 'approved' }),
@@ -55,7 +55,7 @@ function Leave() {
   };
 
   const handleReject = (id) => {
-    fetch(`http://localhost:8000/api/leave-requests/${id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/api/leave-requests/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ status: 'rejected' }),

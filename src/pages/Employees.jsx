@@ -15,7 +15,7 @@ function Employees() {
   }, []);
 
   const fetchEmployees = () => {
-    fetch('http://localhost:8000/api/employees')
+    fetch(`${import.meta.env.VITE_API_URL}/api/employees`)
       .then(res => res.json())
       .then(data => {
         setEmployees(data);
@@ -28,8 +28,8 @@ function Employees() {
     e.preventDefault();
     const method = editId ? 'PUT' : 'POST';
     const url = editId 
-      ? `http://localhost:8000/api/employees/${editId}`
-      : 'http://localhost:8000/api/employees';
+      ? `${import.meta.env.VITE_API_URL}/api/employees/${editId}`
+      : `${import.meta.env.VITE_API_URL}/api/employees`;
 
     fetch(url, {
       method: method,
@@ -52,7 +52,7 @@ function Employees() {
 
   const handleDelete = (id) => {
     if (window.confirm('Delete this employee?')) {
-      fetch(`http://localhost:8000/api/employees/${id}`, { method: 'DELETE' })
+      fetch(`${import.meta.env.VITE_API_URL}/api/employees/${id}`, { method: 'DELETE' })
         .then(() => {
           setEmployees(employees.filter(e => e.id !== id));
         })

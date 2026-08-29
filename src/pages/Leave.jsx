@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 
 function Leave() {
   const [leaves, setLeaves] = useState([]);
+  const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
-    employee_id: 1,
+    employee_id: '',
     from_date: '',
     to_date: '',
     type: 'casual',
@@ -14,6 +15,15 @@ function Leave() {
 
   useEffect(() => {
     fetchLeaves();
+    fetch(`${import.meta.env.VITE_API_URL}/api/employees`)
+      .then(res => res.json())
+      .then(data => {
+        setEmployees(data);
+        if (data.length > 0) {
+          setFormData(prev => ({ ...prev, employee_id: data[0].id }));
+        }
+      })
+      .catch(err => console.error(err));
   }, []);
 
   const fetchLeaves = () => {
@@ -36,7 +46,7 @@ function Leave() {
       .then(res => res.json())
       .then(data => {
         setLeaves([...leaves, data]);
-        setFormData({ employee_id: 1, from_date: '', to_date: '', type: 'casual', reason: '' });
+        setFormData({ ...formData, from_date: '', to_date: '', type: 'casual', reason: '' });
       })
       .catch(err => console.error(err));
   };
@@ -88,6 +98,12 @@ function Leave() {
       <div className="form-card">
         <h3>Request Leave</h3>
         <form onSubmit={handleSubmit} className="form-grid">
+          <select value={formData.employee_id} onChange={(e) => setFormData({...formData, employee_id: e.target.value})} required>
+            {employees.length === 0 && <option value="">No employees found</option>}
+            {employees.map(emp => (
+              <option key={emp.id} value={emp.id}>{emp.name}</option>
+            ))}
+          </select>
           <input type="date" value={formData.from_date} onChange={(e) => setFormData({...formData, from_date: e.target.value})} required />
           <input type="date" value={formData.to_date} onChange={(e) => setFormData({...formData, to_date: e.target.value})} required />
           <select value={formData.type} onChange={(e) => setFormData({...formData, type: e.target.value})}>

@@ -608,3 +608,82 @@ body {
 .search-bar input::placeholder {
   color: var(--ink-soft);
 }
+/* ---------- Leave page styles ---------- */
+.page-content {
+  padding: 0;
+}
+
+.form-card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 20px 40px -26px rgba(16,19,31,0.4), 0 2px 6px rgba(46,38,53,0.05);
+  margin-bottom: 24px;
+}
+
+.form-card h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  font-family: inherit;
+  font-size: 14px;
+  background: white;
+  color: var(--ink);
+}
+
+.form-grid textarea {
+  flex: 1;
+  min-width: 180px;
+  resize: vertical;
+  min-height: 42px;
+}
+
+.card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 20px 40px -26px rgba(16,19,31,0.4), 0 2px 6px rgba(46,38,53,0.05);
+}
+
+.card h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.card p {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  text-transform: capitalize;
+}

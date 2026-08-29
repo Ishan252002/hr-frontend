@@ -67,8 +67,8 @@ function Employees() {
   };
 
   const filtered = employees.filter(emp =>
-    emp.name.toLowerCase().includes(search.toLowerCase()) ||
-    emp.email.toLowerCase().includes(search.toLowerCase())
+    (emp.name || '').toLowerCase().includes(search.toLowerCase()) ||
+    (emp.email || '').toLowerCase().includes(search.toLowerCase())
   );
 
   return (

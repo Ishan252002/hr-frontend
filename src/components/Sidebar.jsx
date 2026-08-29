@@ -8,6 +8,7 @@ const links = [
   { to: '/employees', label: 'Employees', icon: '👥' },
   { to: '/leave', label: 'Leave', icon: '📋' },
   { to: '/attendance', label: 'Attendance', icon: '🕐' },
+ { to: '/payroll', label: 'Payroll', icon: '💰' },
 ];
 function Sidebar() {
   return (

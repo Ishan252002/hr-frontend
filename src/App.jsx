@@ -7,6 +7,7 @@ import Feed from './pages/Feed';
 import Employees from './pages/Employees';
 import Leave from './pages/Leave';
 import Attendance from './pages/Attendance';
+import Payroll from './pages/Payroll';
 import Login from './pages/Login';
 import './App.css';
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="/employees" element={<ProtectedRoute><Employees /></ProtectedRoute>} />
             <Route path="/leave" element={<ProtectedRoute><Leave /></ProtectedRoute>} />
             <Route path="/attendance" element={<ProtectedRoute><Attendance /></ProtectedRoute>} />
+            <Route path="/payroll" element={<ProtectedRoute><Payroll /></ProtectedRoute>} />
           </Routes>
         </main>
       </div>

@@ -7,8 +7,8 @@ const links = [
   { to: '/', label: 'Feed', icon: '🏠' },
   { to: '/employees', label: 'Employees', icon: '👥' },
   { to: '/leave', label: 'Leave', icon: '📋' },
+  { to: '/attendance', label: 'Attendance', icon: '🕐' },
 ];
-
 function Sidebar() {
   return (
     <motion.aside
